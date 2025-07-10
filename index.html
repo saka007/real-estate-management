@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real Estate Management System</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #1976d2;
+      color: #fff;
+      padding: 30px;
+      text-align: center;
+    }
+    .container {
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2 {
+      color: #1976d2;
+      border-bottom: 2px solid #1976d2;
+      padding-bottom: 10px;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    /* Module Styles */
+    .module {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      margin-bottom: 40px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .module:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .module h2 {
+      background: #f8f9fa;
+      padding: 20px 30px;
+      margin: 0;
+      font-size: 1.5rem;
+      color: #2c3e50;
+      border-bottom: 1px solid #e9ecef;
+    }
+    
+    .module h2 i {
+      margin-right: 12px;
+      color: #3498db;
+    }
+    
+    .module-content {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 30px;
+    }
+    
+    .feature-description {
+      flex: 1;
+      min-width: 300px;
+      padding-right: 30px;
+    }
+    
+    .screenshot {
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      align-self: flex-start;
+      margin-top: 20px;
+    }
+    
+    .screenshot-group {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 45%;
+    }
+    
+    .feature-highlights {
+      margin: 25px 0;
+    }
+    
+    .feature-highlights h3 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+      border-bottom: 1px dashed #dee2e6;
+      padding-bottom: 8px;
+    }
+    
+    .feature-highlights ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .feature-highlights li {
+      margin-bottom: 12px;
+      padding-left: 25px;
+      position: relative;
+    }
+    
+    .feature-highlights li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      color: #2ecc71;
+      position: absolute;
+      left: 0;
+      top: 2px;
+    }
+    
+    .benefits {
+      background: #f8f9fa;
+      border-radius: 6px;
+      padding: 20px;
+      margin-top: 25px;
+    }
+    
+    .benefits h4 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+    
+    .benefits ul {
+      columns: 2;
+      column-gap: 30px;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #2c3e50, #3498db);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .cta-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .cta-section h2 {
+      color: white;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      font-weight: 700;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+    
+    .benefit-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      padding: 30px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .benefit-card i {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    
+    .benefit-card h3 {
+      color: white;
+      margin: 15px 0;
+      font-size: 1.3rem;
+    }
+    
+    .benefit-card p {
+      color: rgba(255,255,255,0.9);
+      line-height: 1.6;
+    }
+    
+    .testimonial {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 30px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      position: relative;
+    }
+    
+    .testimonial::before {
+      content: '\f10d';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 3rem;
+      opacity: 0.2;
+    }
+    
+    .testimonial blockquote {
+      font-style: italic;
+      line-height: 1.8;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial footer {
+      margin-top: 20px;
+      font-weight: 600;
+      font-style: normal;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .btn.primary {
+      background: #e74c3c;
+      color: white;
+    }
+    
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+    
+    .btn.large {
+      padding: 15px 35px;
+      font-size: 1.1rem;
+    }
+    
+    .btn.primary:hover {
+      background: #c0392b;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .btn.secondary:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    .main-footer {
+      background: #2c3e50;
+      color: #ecf0f1;
+      padding: 60px 0 0;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      padding: 0 20px;
+    }
+    
+    .footer-section h4, .footer-section h5 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    
+    .footer-section p {
+      margin: 10px 0;
+      line-height: 1.6;
+      color: #bdc3c7;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-section ul li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-section a {
+      color: #bdc3c7;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-section a:hover {
+      color: white;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: #3498db;
+      transform: translateY(-3px);
+    }
+    
+    .social-links i {
+      font-size: 1rem;
+    }
+    
+    .footer-bottom {
+      background: #1a252f;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+    
+    .footer-bottom .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .footer-bottom p {
+      margin: 0;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+    
+    .legal-links {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .legal-links a {
+      color: #7f8c8d;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+    
+    .legal-links a:hover {
+      color: #bdc3c7;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .module-content {
+        flex-direction: column;
+      }
+      
+      .screenshot, .screenshot-group {
+        max-width: 100%;
+        margin-top: 30px;
+      }
+      
+      .benefits ul {
+        columns: 1;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 10px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .module h2 {
+        font-size: 1.3rem;
+        padding: 15px 20px;
+      }
+      
+      .module-content {
+        padding: 20px;
+      }
+      
+      .cta-section h2 {
+        font-size: 1.8rem;
+      }
+      
+      .testimonial {
+        padding: 20px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Enterprise-Grade Real Estate Construction & Management System</h1>
+    <p>Comprehensive, End-to-End Solution for Modern Real Estate Development and Property Management</p>
+    <div class="cta-buttons">
+      <a href="#demo" class="btn primary">Request Demo</a>
+      <a href="#contact" class="btn secondary">Contact Sales</a>
+    </div>
+  </header>
+  <div class="container">
+    <section class="module">
+      <h2><i class="fas fa-tachometer-alt"></i> Dashboard Overview</h2>
+      <div class="module-content">
+        <div class="feature-description">
+          <p>Our comprehensive dashboard provides real-time insights and analytics across all aspects of your real estate business. Monitor key performance indicators, track project progress, and make data-driven decisions with our intuitive interface.</p>
+          
+          <div class="feature-highlights">
+            <h3>Key Features:</h3>
+            <ul>
+              <li><strong>Executive Summary:</strong> Get an instant overview of your business health with customizable widgets</li>
+              <li><strong>Project Portfolio View:</strong> Track all ongoing and upcoming projects with visual progress indicators</li>
+              <li><strong>Financial Snapshot:</strong> Monitor cash flow, revenue, expenses, and profitability metrics</li>
+              <li><strong>Sales Pipeline:</strong> Visualize your sales funnel and conversion rates</li>
+              <li><strong>Task Management:</strong> Stay on top of critical tasks and deadlines</li>
+              <li><strong>Custom Reports:</strong> Generate and schedule automated reports for stakeholders</li>
+            </ul>
+          </div>
+          
+          <div class="use-case">
+            <h4>Use Case: Portfolio Performance Analysis</h4>
+            <p>Quickly assess the performance of your entire real estate portfolio. Compare different projects, identify underperforming assets, and make informed decisions about resource allocation and investment strategies.</p>
+          </div>
+        </div>
+        <img src="images/dashboard.png" alt="Interactive Dashboard" class="screenshot" />
+        
+        <div class="benefits">
+          <h4>Key Benefits:</h4>
+          <ul>
+            <li>Gain real-time visibility into your entire real estate portfolio</li>
+            <li>Make data-driven decisions with comprehensive analytics</li>
+            <li>Monitor project performance and financial health at a glance</li>
+            <li>Identify trends and opportunities with interactive visualizations</li>
+            <li>Streamline reporting with automated dashboards and alerts</li>
+            <li>Improve team collaboration with shared metrics and KPIs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="module">
+      <h2><i class="fas fa-project-diagram"></i> Project & Product Management</h2>
+      <div class="module-content">
+        <div class="feature-description">
+          <p>Comprehensive project and product management solution designed specifically for real estate developments, supporting both single and multi-project environments with advanced tracking and management capabilities.</p>
+          
+          <div class="feature-highlights">
+            <h3>Key Features:</h3>
+            <ul>
+              <li><strong>Multi-Project Management:</strong> Handle unlimited projects with hierarchical organization and independent tracking</li>
+              <li><strong>Gantt Charts & Timelines:</strong> Visualize project schedules and dependencies with interactive Gantt charts</li>
+              <li><strong>Resource Allocation:</strong> Optimize team assignments and workload across projects</li>
+              <li><strong>Product Catalog:</strong> Comprehensive database of all real estate units with specifications</li>
+              <li><strong>Inventory Tracking:</strong> Real-time monitoring of available, reserved, and sold units</li>
+              <li><strong>Financial Controls:</strong> Budget tracking, cost monitoring, and revenue recognition</li>
+            </ul>
+          </div>
+          
+          <div class="feature-highlights">
+            <h3>Advanced Capabilities:</h3>
+            <ul>
+              <li><strong>Document Management:</strong> Centralized storage for all project and product documents</li>
+              <li><strong>3D Visualization:</strong> Interactive floor plans and virtual tours for better product presentation</li>
+              <li><strong>Task Dependencies:</strong> Set up and manage complex task relationships</li>
+              <li><strong>Mobile Access:</strong> Update progress and access information from the field</li>
+              <li><strong>Vendor Management:</strong> Track and evaluate vendor performance</li>
+              <li><strong>Risk Management:</strong> Identify and mitigate potential project risks</li>
+            </ul>
+          </div>
+          
+          <div class="use-case">
+            <h4>Use Case: Development Project Lifecycle</h4>
+            <p>From land acquisition to handover, manage every phase of your real estate development projects. Track milestones, monitor budgets, coordinate with contractors, and ensure timely delivery while maintaining quality standards and profitability.</p>
+          </div>
+        </div>
+        <img src="images/product.png" alt="Project & Product Management Interface" class="screenshot" />
+        
+        <div class="benefits">
+          <h4>Key Benefits:</h4>
+          <ul>
+            <li>Reduce project delays through better coordination</li>
+            <li>Improve resource utilization and reduce wastage</li>
+            <li>Enhance communication between teams and stakeholders</li>
+            <li>Make data-driven decisions with real-time insights</li>
+            <li>Streamline approval processes and documentation</li>
+            <li>Increase overall project profitability and success rates</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="module">
+      <h2><i class="fas fa-handshake"></i> Sales & Customer Relationship Management</h2>
+      <div class="module-content">
+        <div class="feature-description">
+          <p>Transform your sales process and customer relationships with our comprehensive CRM solution designed specifically for real estate professionals. From lead generation to deal closure, manage your entire sales pipeline efficiently.</p>
+          
+          <div class="feature-highlights">
+            <h3>Sales Pipeline Management:</h3>
+            <ul>
+              <li><strong>Lead Management:</strong> Capture, qualify, and track leads from multiple channels</li>
+              <li><strong>Opportunity Tracking:</strong> Monitor deals through every stage of the sales funnel</li>
+              <li><strong>Automated Follow-ups:</strong> Never miss a follow-up with automated reminders and tasks</li>
+              <li><strong>Document Generation:</strong> Create proposals, contracts, and other sales documents in minutes</li>
+              <li><strong>eSignatures:</strong> Get documents signed electronically for faster deal closures</li>
+              <li><strong>Commission Tracking:</strong> Automate commission calculations for sales teams</li>
+            </ul>
+          </div>
+          
+          <div class="feature-highlights">
+            <h3>Customer Management:</h3>
+            <ul>
+              <li><strong>360° Customer View:</strong> Access complete customer history and interactions</li>
+              <li><strong>Customer Segmentation:</strong> Group customers for targeted marketing</li>
+              <li><strong>Feedback Management:</strong> Capture and analyze customer feedback</li>
+              <li><strong>Renewal Tracking:</strong> Never miss a renewal opportunity</li>
+              <li><strong>Referral Program:</strong> Track and reward customer referrals</li>
+            </ul>
+          </div>
+        </div>
+        <img src="images/sell.png" alt="Sales & CRM Interface" class="screenshot" />
+        
+        <div class="benefits">
+          <h4>Key Benefits:</h4>
+          <ul>
+            <li>Increase conversion rates with systematic lead nurturing</li>
+            <li>Improve sales team productivity with automation</li>
+            <li>Enhance customer satisfaction with timely follow-ups</li>
+            <li>Gain valuable insights into customer behavior and preferences</li>
+            <li>Streamline the entire sales process from lead to close</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="module">
+      <h2><i class="fas fa-shopping-cart"></i> Procurement & Vendor Management</h2>
+      <div class="module-content">
+        <div class="feature-description">
+          <p>Streamline your procurement process and manage vendor relationships effectively with our comprehensive purchase management system designed for real estate development projects.</p>
+          
+          <div class="feature-highlights">
+            <h3>Procurement Workflow:</h3>
+            <ul>
+              <li><strong>Requisition Management:</strong> Create and track material and service requests</li>
+              <li><strong>Purchase Order Automation:</strong> Generate POs with just a few clicks</li>
+              <li><strong>Three-Way Matching:</strong> Match POs, GRNs, and invoices automatically</li>
+              <li><strong>Budget Controls:</strong> Enforce budget limits and approval workflows</li>
+              <li><strong>Delivery Tracking:</strong> Monitor order status and expected delivery dates</li>
+              <li><strong>Quality Control:</strong> Record and track quality inspections</li>
+            </ul>
+          </div>
+          
+          <div class="feature-highlights">
+            <h3>Vendor Management:</h3>
+            <ul>
+              <li><strong>Vendor Portal:</strong> Allow vendors to submit quotes and update order status</li>
+              <li><strong>Performance Tracking:</strong> Rate and review vendor performance</li>
+              <li><strong>Contract Management:</strong> Store and track vendor contracts and SLAs</li>
+              <li><strong>Bulk Procurement:</strong> Combine requirements across projects for better pricing</li>
+              <li><strong>Compliance Management:</strong> Ensure vendor compliance with regulations</li>
+            </ul>
+          </div>
+        </div>
+        <img src="images/purchase.png" alt="Procurement & Vendor Management Interface" class="screenshot" />
+        
+        <div class="benefits">
+          <h4>Key Benefits:</h4>
+          <ul>
+            <li>Reduce procurement cycle time by up to 60%</li>
+            <li>Improve cost control and budget compliance</li>
+            <li>Enhance vendor relationships and performance</li>
+            <li>Minimize maverick spending</li>
+            <li>Maintain complete audit trails for compliance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="module">
+      <h2><i class="fas fa-piggy-bank"></i> Financial Management & Accounting</h2>
+      <div class="module-content">
+        <div class="feature-description">
+          <p>Take control of your financial operations with our comprehensive accounting and financial management solution tailored for real estate businesses. From daily transactions to financial reporting, manage all your financial processes in one place.</p>
+          
+          <div class="feature-highlights">
+            <h3>Cash & Bank Management:</h3>
+            <ul>
+              <li><strong>Multi-Currency Support:</strong> Handle transactions in multiple currencies</li>
+              <li><strong>Bank Reconciliation:</strong> Automatically match transactions with bank statements</li>
+              <li><strong>Payment Processing:</strong> Process various payment methods including checks, transfers, and online payments</li>
+              <li><strong>Cash Flow Forecasting:</strong> Predict future cash flows based on scheduled transactions</li>
+              <li><strong>Fixed Asset Management:</strong> Track and depreciate fixed assets</li>
+              <li><strong>Petty Cash Management:</strong> Track small cash expenses efficiently</li>
+            </ul>
+          </div>
+          
+          <div class="feature-highlights">
+            <h3>General Ledger & Financial Reporting:</h3>
+            <ul>
+              <li><strong>Chart of Accounts:</strong> Customizable account structure to match your business needs</li>
+              <li><strong>Journal Entries:</strong> Manual and automated journal entry creation</li>
+              <li><strong>Trial Balance:</strong> Generate trial balance for any date range</li>
+              <li><strong>Financial Statements:</strong> Generate balance sheets, income statements, and cash flow statements</li>
+              <li><strong>Project Accounting:</strong> Track financials by project, property, or unit</li>
+              <li><strong>Audit Trail:</strong> Complete history of all financial transactions</li>
+            </ul>
+          </div>
+        </div>
+        <img src="images/bank_cash.png" alt="Financial Management Dashboard" class="screenshot" />
+        
+        <div class="benefits">
+          <h4>Key Benefits:</h4>
+          <ul>
+            <li>Improve financial visibility and control across all business units</li>
+            <li>Reduce manual data entry and minimize accounting errors</li>
+            <li>Ensure compliance with accounting standards and regulations</li>
+            <li>Accelerate month-end and year-end closing processes</li>
+            <li>Make data-driven business decisions with real-time financial insights</li>
+            <li>Streamline financial operations with automated workflows</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="module">
+      <h2><i class="fas fa-file-invoice-dollar"></i> Advanced Accounting & Financial Reporting</h2>
+      <div class="module-content">
+        <div class="feature-description">
+          <p>Comprehensive accounting solution with advanced voucher management, multi-branch support, and complete financial reporting capabilities designed for real estate businesses.</p>          
+          <div class="feature-highlights">
+            <h3>Financial Reporting & Analysis:</h3>
+            <ul>
+              <li><strong>Comprehensive Reporting:</strong> Standard financial statements plus custom report builder</li>
+              <li><strong>Business Intelligence:</strong> Interactive dashboards with drill-down capabilities</li>
+              <li><strong>Performance Analytics:</strong> Track KPIs and financial metrics in real-time</li>
+              <li><strong>Budget Analysis:</strong> Detailed variance reporting and forecasting</li>
+              <li><strong>Multi-dimensional Views:</strong> Analyze data by project, department, or cost center</li>
+              <li><strong>Automated Distribution:</strong> Schedule and share reports with stakeholders</li>
+            </ul>
+          </div>
+          
+          <div class="feature-highlights">
+            <h3>Advanced Accounting Features:</h3>
+            <ul>
+              <li><strong>Fixed Assets Management:</strong> Track and depreciate fixed assets</li>
+              <li><strong>Bank Reconciliation:</strong> Match transactions with bank statements</li>
+              <li><strong>Multi-Currency Support:</strong> Handle transactions in multiple currencies</li>
+              <li><strong>Financial Year Management:</strong> Support for different financial year structures</li>
+              <li><strong>Tax Management:</strong> Calculate and track various tax types</li>
+              <li><strong>Audit Trail:</strong> Complete history of all financial transactions</li>
+            </ul>
+          </div>
+          
+          <div class="feature-highlights">
+            <h3>Purchase & Sales Management:</h3>
+            <ul>
+              <li><strong>Purchase Requisitions:</strong> Create and track purchase requests</li>
+              <li><strong>Purchase Orders:</strong> Generate and manage POs with automated workflows</li>
+              <li><strong>Sales Orders:</strong> Process and track customer orders</li>
+              <li><strong>Invoice Generation:</strong> Create professional invoices with multiple payment options</li>
+              <li><strong>Payment Tracking:</strong> Record and reconcile customer payments</li>
+              <li><strong>Credit Management:</strong> Monitor and manage customer credit limits</li>
+            </ul>
+          </div>
+
+          <div class="feature-highlights">
+            <h3>Chart of Accounts:</h3>
+            <ul>
+              <li><strong>Flexible Account Structure:</strong> Create unlimited account types and groups</li>
+              <li><strong>Multi-Level Hierarchy:</strong> Organize accounts in a parent-child structure</li>
+              <li><strong>Branch Accounting:</strong> Maintain separate ledgers by branch/location</li>
+              <li><strong>Cost Centers:</strong> Track income and expenses by department/project</li>
+              <li><strong>Account Tags:</strong> Categorize accounts for custom reporting</li>
+              <li><strong>Account Locking:</strong> Prevent modifications to closed accounting periods</li>
+            </ul>
+          </div>
+        </div>
+        <img src="images/financial-report.png" alt="Financial Reports" class="screenshot" />
+        
+        <div class="benefits">
+          <h4>Key Benefits:</h4>
+          <ul>
+            <li>Complete financial visibility across all projects and business units</li>
+            <li>Streamlined accounting processes with automation</li>
+            <li>Compliance with accounting standards and regulations</li>
+            <li>Real-time financial insights for better decision making</li>
+            <li>Seamless integration with other business functions</li>
+            <li>Robust audit capabilities for financial transparency</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="module">
+      <h2><i class="fas fa-user-shield"></i> Advanced Security & User Management</h2>
+      <div class="module-content">
+        <div class="feature-description">
+          <p>Enterprise-grade security and access control system with granular permissions and comprehensive audit capabilities.</p>
+          
+          <div class="feature-highlights">
+            <h3>Security, Audit & Compliance:</h3>
+            <ul>
+              <li><strong>Access Control:</strong> Multi-factor authentication and IP-based restrictions</li>
+              <li><strong>Activity Monitoring:</strong> Comprehensive tracking of all user actions and data access</li>
+              <li><strong>Session Security:</strong> Advanced session management and timeout controls</li>
+              <li><strong>Data Protection:</strong> End-to-end encryption for data at rest and in transit</li>
+              <li><strong>Compliance Framework:</strong> Built-in tools for GDPR, SOC2, and other regulatory standards</li>
+              <li><strong>Audit Trail:</strong> Complete history of all system activities and changes</li>
+              <li><strong>Data Governance:</strong> Configurable retention policies and data lifecycle management</li>
+            </ul>
+          </div>
+          
+          <div class="feature-highlights">
+            <h3>Audit & Monitoring:</h3>
+            <ul>
+              <li><strong>User Activity Logs:</strong> Track all user actions within the system</li>
+              <li><strong>Data Access Logs:</strong> Monitor who accessed what data and when</li>
+              <li><strong>Login History:</strong> Track successful and failed login attempts</li>
+              <li><strong>Change Tracking:</strong> Record all data modifications</li>
+              <li><strong>Custom Alerts:</strong> Get notified of important system events</li>
+              <li><strong>Exportable Reports:</strong> Generate compliance reports in multiple formats</li>
+            </ul>
+          </div>
+          
+          <div class="feature-highlights">
+            <h3>User Management & Authentication:</h3>
+            <ul>
+              <li><strong>Multi-Factor Authentication:</strong> Add an extra layer of security with MFA</li>
+              <li><strong>Single Sign-On (SSO):</strong> Integrate with enterprise identity providers</li>
+              <li><strong>Password Policies:</strong> Enforce strong password requirements and expiration</li>
+              <li><strong>User Provisioning:</strong> Streamline user onboarding and offboarding</li>
+              <li><strong>Session Management:</strong> Monitor and control active user sessions</li>
+              <li><strong>Self-Service Portal:</strong> Allow users to manage their profiles and preferences</li>
+            </ul>
+          </div>
+          
+          <div class="feature-highlights">
+            <h3>Role & Permission Management:</h3>
+            <ul>
+              <li><strong>Predefined Roles:</strong> Out-of-the-box roles for common positions (Admin, Accountant, Project Manager, etc.)</li>
+              <li><strong>Custom Roles:</strong> Create roles tailored to your organization's needs</li>
+              <li><strong>Granular Permissions:</strong> Control access to features, data, and actions at a granular level</li>
+              <li><strong>Data-Level Security:</strong> Restrict access to specific projects, properties, or business units</li>
+              <li><strong>Approval Hierarchies:</strong> Define multi-level approval workflows based on roles</li>
+              <li><strong>Delegation:</strong> Temporarily delegate responsibilities when needed</li>
+            </ul>
+          </div>
+          
+          <div class="feature-highlights">
+            <h3>Audit & Compliance:</h3>
+            <ul>
+              <li><strong>Comprehensive Audit Logs:</strong> Track all user activities and system changes</li>
+              <li><strong>Data Access Logs:</strong> Monitor who accessed what data and when</li>
+              <li><strong>Compliance Reporting:</strong> Generate reports for regulatory compliance</li>
+              <li><strong>Data Retention Policies:</strong> Define and enforce data retention rules</li>
+              <li><strong>GDPR & Privacy Tools:</strong> Tools to help with data privacy compliance</li>
+            </ul>
+          </div>
+        </div>
+        <img src="images/login.png" alt="Advanced Security & User Management" class="screenshot" />
+        
+        <div class="benefits">
+          <h4>Key Benefits:</h4>
+          <ul>
+            <li>Protect sensitive business data with enterprise-grade security</li>
+            <li>Ensure compliance with industry regulations and standards</li>
+            <li>Gain complete visibility into system usage and user activities</li>
+            <li>Streamline user management with role-based access control</li>
+            <li>Maintain data integrity with robust validation and audit capabilities</li>
+            <li>Flexible data management options for backup, restore, and migration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="cta-content">
+        <h2>Why Choose Our Enterprise Real Estate Management Platform?</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <i class="fas fa-sync-alt"></i>
+            <h3>End-to-End Integration</h3>
+            <p>Seamlessly connect all aspects of your real estate business from development to sales to property management in one unified platform.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Data-Driven Decisions</h3>
+            <p>Leverage powerful analytics and real-time reporting to make informed business decisions and stay ahead of market trends.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Enterprise-Grade Security</h3>
+            <p>Protect your valuable business data with bank-level security, regular backups, and comprehensive access controls.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <i class="fas fa-expand-arrows-alt"></i>
+            <h3>Scalable Architecture</h3>
+            <p>Grow your business without technology constraints with our cloud-based solution that scales with your needs.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <i class="fas fa-cogs"></i>
+            <h3>Customizable Workflows</h3>
+            <p>Adapt the system to your unique business processes with configurable workflows and approval hierarchies.</p>
+          </div>
+          
+          <div class="benefit-card">
+            <i class="fas fa-headset"></i>
+            <h3>Dedicated Support</h3>
+            <p>Access our team of real estate technology experts for onboarding, training, and ongoing support.</p>
+          </div>
+        </div>
+    </section>
+  </div>
+</body>
+</html>
