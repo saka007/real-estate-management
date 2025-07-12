@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quotation - Enterprise Real Estate Management System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+    .section-title { @apply text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-800; }
+    .table-header { background-color: #6d28d9; color: white; }
+    .table-row-even { background-color: #f3f4f6; }
+    .table-row-odd { background-color: white; }
+    .gradient-header { background: linear-gradient(to right, #8b5cf6, #a855f7); color: white; }
+  </style>
+</head>
+<body class="p-4">
+  <div class="max-w-5xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+    <header class="gradient-header p-6">
+      <h1 class="text-3xl font-bold text-center">Quotation - Enterprise Real Estate Management System</h1>
+    </header>
+
+<section class="p-6">
+  <h2 class="section-title">1. Project Overview</h2>
+  <p class="text-sm text-gray-700 leading-relaxed">
+    This document outlines a complete Real Estate ERP solution tailored for builders and developers. It covers every core operation: from pre-sales and customer lifecycle management to project progress tracking, document management, procurement, and finance. Each module is built with usability, scalability, and security at its core—ensuring digital transformation for real estate firms.
+  </p>
+</section>
+
+<section class="p-6">
+  <h2 class="section-title">2. Module-wise Breakdown & Estimated Effort</h2>
+  <table class="w-full text-sm border rounded">
+    <thead class="table-header">
+      <tr><th class="p-2 text-left">Module</th><th class="p-2 text-left">Detailed Description</th><th class="p-2 text-left">Est. Effort (Hours)</th></tr>
+    </thead>
+    <tbody>
+      <tr class="table-row-odd">
+        <td class="p-2 font-semibold">Dashboard & BI</td>
+        <td class="p-2">Comprehensive BI dashboards featuring real-time data visualizations, customizable metrics, heat maps of site progress, sales funnels, financial KPIs, and more. Enables CXOs to make proactive, data-driven decisions.</td>
+        <td class="p-2">32 hrs</td>
+      </tr>
+      <tr class="table-row-even">
+        <td class="p-2 font-semibold">Project Management</td>
+        <td class="p-2">Handles multiple real estate projects with phase-wise planning, task scheduling, RERA compliance, unit grouping (towers, plots), milestone configuration, and work progress mapping with on-site reporting.</td>
+        <td class="p-2">45 hrs</td>
+      </tr>
+      <tr class="table-row-odd">
+        <td class="p-2 font-semibold">Sales & CRM</td>
+        <td class="p-2">Lead funnel automation with follow-up tracking, team-wise lead allocation, agent commission mapping, and personalized follow-ups via WhatsApp/SMS. Customizable statuses and campaign analytics.</td>
+        <td class="p-2">40 hrs</td>
+      </tr>
+      <tr class="table-row-even">
+        <td class="p-2 font-semibold">Customer Portal</td>
+        <td class="p-2">Dedicated portal for buyers with real-time access to booking data, payments, KYC status, project updates, and downloadable legal documents. Supports support ticketing and due alerts.</td>
+        <td class="p-2">28 hrs</td>
+      </tr>
+      <tr class="table-row-odd">
+        <td class="p-2 font-semibold">Procurement</td>
+        <td class="p-2">Streamlined procurement including requisitions, vendor quote comparisons, purchase orders, invoice approvals, and stock-in tracking—all mapped to budgets and real-time BOQ consumption.</td>
+        <td class="p-2">34 hrs</td>
+      </tr>
+      <tr class="table-row-even">
+        <td class="p-2 font-semibold">Finance</td>
+        <td class="p-2">Covers real-time billing, GST tax invoices, project ledger tracking, financial reporting, payment due alerts, aging reports, and Tally-compatible exports. Secured multi-level approval workflow for transactions.</td>
+        <td class="p-2">39 hrs</td>
+      </tr>
+      <tr class="table-row-odd">
+        <td class="p-2 font-semibold">Security & Roles</td>
+        <td class="p-2">Robust RBAC (Role-Based Access Control) system with department-level restrictions, audit logs, multi-device login detection, IP filtering, and support for two-factor authentication (2FA).</td>
+        <td class="p-2">20 hrs</td>
+      </tr>
+      <tr class="bg-green-100 font-bold">
+        <td class="p-2" colspan="2">Total Estimated Effort</td>
+        <td class="p-2">238 hrs</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="p-6">
+  <h2 class="section-title">3. Development & Deployment Cost</h2>
+  <table class="w-full text-sm border rounded">
+    <thead class="table-header">
+      <tr><th class="p-2 text-left">Component</th><th class="p-2 text-left">Description</th><th class="p-2 text-left">Cost (INR)</th></tr>
+    </thead>
+    <tbody>
+      <tr class="table-row-odd">
+        <td class="p-2 font-semibold">Core Development</td>
+        <td class="p-2">Includes all module development, testing, integration & deployment</td>
+        <td class="p-2">₹3,95,000</td>
+      </tr>
+      <tr class="table-row-even">
+        <td class="p-2 font-semibold">Domain & Hosting</td>
+        <td class="p-2">Includes domain (.com), SSL, and secured VPS hosting for 1 year</td>
+        <td class="p-2">₹16,200</td>
+      </tr>
+      <tr class="table-row-odd">
+        <td class="p-2 font-semibold">SMS/WhatsApp API</td>
+        <td class="p-2">Integration, approval, and credits for automated messaging flows</td>
+        <td class="p-2">₹20,000</td>
+      </tr>
+      <tr class="table-row-even">
+        <td class="p-2 font-semibold">Misc/Contingency</td>
+        <td class="p-2">Buffer for last-minute requests, UI fixes, or compliance updates</td>
+        <td class="p-2">₹14,000</td>
+      </tr>
+      <tr class="bg-green-100 font-bold">
+        <td class="p-2" colspan="2">Total</td>
+        <td class="p-2">₹4,45,200</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="p-6">
+  <h2 class="section-title">4. Maintenance Plans</h2>
+  <table class="w-full text-sm border rounded">
+    <thead class="table-header">
+      <tr><th class="p-2">Plan Duration</th><th class="p-2">Cost</th><th class="p-2">Savings</th></tr>
+    </thead>
+    <tbody>
+      <tr class="table-row-odd"><td class="p-2">1 Month</td><td class="p-2">₹20,000</td><td class="p-2">-</td></tr>
+      <tr class="table-row-even"><td class="p-2">3 Months</td><td class="p-2">₹54,000</td><td class="p-2">₹6,000</td></tr>
+      <tr class="table-row-odd"><td class="p-2">6 Months</td><td class="p-2">₹1,00,000</td><td class="p-2">₹20,000</td></tr>
+      <tr class="table-row-even"><td class="p-2">1 Year</td><td class="p-2">₹1,80,000</td><td class="p-2">₹60,000</td></tr>
+    </tbody>
+  </table>
+  <p class="text-xs text-gray-600 mt-2">Plans cover system health checks, bug resolutions, module optimization, and basic enhancements.</p>
+</section>
+
+<footer class="p-6 text-sm text-gray-700">
+  <p><strong>Authorized By:</strong> [Your Name / Company]</p>
+  <p><em>*Quotation valid for 30 days.*</em></p>
+</footer>
+
+  </div>
+</body>
+</html>
